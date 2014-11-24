@@ -1,0 +1,22 @@
+<?php
+namespace Database;
+
+class Database
+{
+    protected $adapter;
+
+    public function __construct(MySqlAdapter $adapter)
+    {
+        $this->adapter = $adapter;
+    }
+}
+
+class MysqlAdapter 
+{
+	public function __construct()
+	{
+			
+	}
+}
+
+?>
