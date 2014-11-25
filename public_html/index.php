@@ -1,20 +1,28 @@
-<html>
-<head>
-	<title>Main page</title>
-</head>
-<body>
-	<h2>Please login!<h2>
-	<FORM>
-		User Name:<br>	
-		<input type="text" name="UserName">
-		<br>
-		Password:<br>
-		<input type="text" name="Password">
-		<input type="submit" name="Authenticate">
-	</FORM>
-	<FORM>
-		Create new account:<br>
-		<a href="new_account.php">Press to create new account.</a>
-	</FORM>
-</body>
-</html>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: tautvis
+ * Date: 14.11.24
+ * Time: 14.49
+ */
+
+// Holds data like $baseUrl etc.
+//include '/var/www/game.com/config/config.php';
+//include '/var/www/game.com';
+include '/var/www/game.com/controllers/Index.php';
+
+//$requestUrl = 'http://'.$_SERVER['game.localhost'].$_SERVER['/'];
+//echo $_SERVER['HTTP_HOST'];
+//echo $_SERVER['REQUEST_URI'];
+//$requestString = substr($requestUrl, strlen($baseUrl));
+
+//$urlParams = explode('/', $requestString);
+
+$controllerName = ucfirst(array_shift($urlParams)).'Controller';
+$actionName = strtolower(array_shift($urlParams)).'Action';
+
+// Here you should probably gather the rest as params
+
+// Call the action
+$controller = new $controllerName;
+$controller->$actionName();
